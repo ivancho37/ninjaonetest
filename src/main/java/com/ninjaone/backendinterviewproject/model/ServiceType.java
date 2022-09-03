@@ -1,17 +1,16 @@
 package com.ninjaone.backendinterviewproject.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(uniqueConstraints =
+        { //other constraints
+                @UniqueConstraint(name = "UniqueServiceNameAndType", columnNames = { "serviceName", "device_type_id" })})
 public class ServiceType {
 
     @Id
     private String id;
 
-    @Column(unique = true)
     private String serviceName;
 
     private Double cost;

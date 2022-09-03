@@ -1,16 +1,30 @@
 # NinjaOne Backend Interview Project
 
-The project is configured to use an in-memory H2 database that is volatile. If you wish to make it maintain data on application shut down, you can change the spring.database.jdbc-url to point at a file like `jdbc:h2:file:/{your file path here}`
+The project is the solution purposed by Ivan Camilo Garavito to the problem mentioned
 
 ## Starting the Application
 
 Run the `BackendInterviewProjectApplication` class
 
-Go to:
-* http://localhost:8080/sample/1
-* http://localhost:8080/sample/2
+Endpoints: 
 
-You should see results for both of these. The application is working and connected to the H2 database. 
+Device
+* Find all devices: http://localhost:8080/device (GET)
+* Find device by id: http://localhost:8080/device/{id} (GET)
+* Add device: http://localhost:8080/device (POST)
+* Update device: http://localhost:8080/device/{id} (PUT)
+* Delete device: http://localhost:8080/device/{id} (DELETE)
+
+Service Type
+* Add service type: http://localhost:8080/servicetype (POST)
+* Delete service type: http://localhost:8080/servicetype/{id} (DELETE)
+
+Customer Device Controller
+* Calculate monthly cost per customer: http://localhost:8080/customerdevice/calculatecost/{customerid} (GET)
+
+Resources:
+
+Collection located in resources/Ninjaone.postman_collection can be imported in postman to have some util endpoints.
 
 ## H2 Console 
 
@@ -26,17 +40,3 @@ url: jdbc:h2:mem:localdb
 username: sa 
 password: password
 ```
-
-You should be able to see a db console now that has the Sample Repository in it.
-
-Type:
-
-```sql
-SELECT * FROM SAMPLE;
-````
-
-Click `Run`, you should see two rows, for ids `1` and `2`
-
-### Suggestions
-
-Feel free to remove or repurpose the existing Sample Repository, Entity, Controller, and Service. 
